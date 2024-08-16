@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.Answers.RgbColor.RgbColorPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow.Answers.RgbColor"
+    Title="RgbColorPage">
+
+    <VerticalStackLayout
+        Margin="20,20,20,20"
+        MaximumWidthRequest="600"
+        Spacing="20">
+
+        <Frame>
+            <BoxView
+                HeightRequest="200"
+                WidthRequest="200"
+                Color="{local:RgbColor R={Binding Value, Source={x:Reference redSlider}}, G={Binding Value, Source={x:Reference greenSlider}}, B={Binding Value, Source={x:Reference blueSlider}}, A={Binding Value, Source={x:Reference alphaSlider}}}" />
+        </Frame>
+
+        <Grid ColumnDefinitions="100,*" RowDefinitions="Auto,Auto,Auto,Auto">
+            <Label Text="{Binding Value, Source={x:Reference redSlider}, StringFormat='Red: {0:0}'}" />
+            <Slider x:Name="redSlider" Grid.Column="1" Maximum="255" Value="89" />
+
+            <Label Grid.Row="1" Text="{Binding Value, Source={x:Reference greenSlider}, StringFormat='Green: {0:0}'}" />
+            <Slider x:Name="greenSlider" Grid.Row="1" Grid.Column="1" Maximum="255" Value="247" />
+
+            <Label Grid.Row="2" Text="{Binding Value, Source={x:Reference blueSlider}, StringFormat='Blue: {0:0}'}" />
+            <Slider x:Name="blueSlider" Grid.Row="2" Grid.Column="2" Maximum="255" Value="255" />
+
+            <Label Grid.Row="3" Text="{Binding Value, Source={x:Reference alphaSlider}, StringFormat='Alpha: {0:0}'}" />
+            <Slider x:Name="alphaSlider" Grid.Row="3" Grid.Column="3" Maximum="255" Value="255" />
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentPage>
