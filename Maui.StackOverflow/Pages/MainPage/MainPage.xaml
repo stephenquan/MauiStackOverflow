@@ -16,7 +16,7 @@
                 <Setter Property="HorizontalOptions" Value="End" />
                 <Setter Property="WidthRequest" Value="100" />
             </Style>
-            <DataTemplate x:Key="sampleTemplate" x:DataType="x:String">
+            <DataTemplate x:Key="sampleTemplate" x:DataType="local:Sample">
                 <!--<Grid Padding="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -28,10 +28,10 @@
                 <Frame Padding="10,10,10,10" BorderColor="Transparent">
                     <Frame>
                         <VerticalStackLayout>
-                            <Label Text="{Binding}" />
+                            <Label Text="{Binding Name}" />
                             <Button
                                 Clicked="OnNavigate"
-                                CommandParameter="{Binding StringFormat='{}{0}Page'}"
+                                CommandParameter="{Binding Name}"
                                 Text="Try it" />
                         </VerticalStackLayout>
                     </Frame>
@@ -39,6 +39,7 @@
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
+
     <Grid>
         <CollectionView ItemTemplate="{StaticResource sampleTemplate}" ItemsSource="{Binding Samples}" />
     </Grid>

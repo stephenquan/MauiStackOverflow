@@ -6,7 +6,9 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(AppThemeImagePage), typeof(AppThemeImagePage));
-		Routing.RegisterRoute(nameof(RgbColorPage), typeof(RgbColorPage));
+		foreach (var sample in Samples.Items)
+		{
+			Routing.RegisterRoute(sample.Name, sample.Page);
+		}
 	}
 }
