@@ -6,6 +6,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(Maui.StackOverflow.Answers.RgbColor.RgbColorPage), typeof(Maui.StackOverflow.Answers.RgbColor.RgbColorPage));
+		Routing.RegisterRoute(nameof(RgbColorPage), typeof(RgbColorPage));
+		Routing.RegisterRoute(nameof(AppThemeImagePage), typeof(AppThemeImagePage));
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Globalization;
 
-namespace Maui.StackOverflow.Answers.RgbColor;
+namespace Maui.StackOverflow;
 
 [ContentProperty(nameof(R))]
 public class RgbColorExtension : BindableObject, IMarkupExtension<BindingBase>, IMultiValueConverter

@@ -28,7 +28,7 @@ public partial class MainPage : ContentPage
 	/// <param name="e"></param>
     void OnNavigate(object sender, EventArgs e)
     {
-        Shell.Current.GoToAsync(nameof(Maui.StackOverflow.Answers.RgbColor.RgbColorPage));
+		Button btn = (Button)sender;
+        Shell.Current.GoToAsync(btn.CommandParameter.ToString());
     }
-
 }
