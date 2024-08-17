@@ -26,9 +26,9 @@ public partial class MainPage : ContentPage
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
-    void OnNavigate(object sender, EventArgs e)
+    async void OnNavigate(object sender, EventArgs e)
     {
 		Button btn = (Button)sender;
-        Shell.Current.GoToAsync(btn.CommandParameter.ToString());
+        await Shell.Current.GoToAsync(btn.CommandParameter.ToString());
     }
 }

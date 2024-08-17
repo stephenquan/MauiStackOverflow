@@ -6,7 +6,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(RgbColorPage), typeof(RgbColorPage));
 		Routing.RegisterRoute(nameof(AppThemeImagePage), typeof(AppThemeImagePage));
+		Routing.RegisterRoute(nameof(RgbColorPage), typeof(RgbColorPage));
 	}
 }

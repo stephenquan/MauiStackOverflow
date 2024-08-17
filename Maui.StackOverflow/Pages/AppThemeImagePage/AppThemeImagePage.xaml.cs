@@ -1,6 +1,6 @@
 namespace Maui.StackOverflow;
 
-public partial class AppThemeImagePage : ContentView
+public partial class AppThemeImagePage : ContentPage
 {
 	public AppThemeImagePage()
 	{
