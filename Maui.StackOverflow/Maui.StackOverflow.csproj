@@ -75,7 +75,8 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+    <MauiImage Update="Resources\Images\icon_*" BaseSize="64,64"/>
+    <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -92,9 +93,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\ThemeDemoPage\ThemeDemoPage.xaml.cs">
-	    <DependentUpon>ThemeDemoPage.xaml</DependentUpon>
+	  <Compile Update="Pages\ThemePage\ThemePage.xaml.cs">
+	    <DependentUpon>ThemePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 </Project>
+ 

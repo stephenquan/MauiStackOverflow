@@ -10,7 +10,7 @@ public static class MauiProgram
 		builder
 			.UseMauiApp<App>()
 			.RegisterSample<RgbColorPage>(nameof(RgbColorPage))
-			.RegisterSample<ThemeDemoPage>(nameof(ThemeDemoPage))
+			.RegisterSample<ThemePage>(nameof(ThemePage))
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

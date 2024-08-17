@@ -25,7 +25,7 @@
                     <Label Text="{Binding Title}" FontSize="Large" Grid.Column="0" />
                     <Label Text="{Binding Description}" Grid.Column="1" />
                 </Grid-->
-                <Frame Padding="10,10,10,10" BorderColor="Transparent">
+                <Grid Padding="10,10,10,10">
                     <Frame>
                         <VerticalStackLayout>
                             <Label Text="{Binding Name}" />
@@ -35,7 +35,7 @@
                                 Text="Try it" />
                         </VerticalStackLayout>
                     </Frame>
-                </Frame>
+                </Grid>
             </DataTemplate>
         </ResourceDictionary>
     </ContentPage.Resources>
