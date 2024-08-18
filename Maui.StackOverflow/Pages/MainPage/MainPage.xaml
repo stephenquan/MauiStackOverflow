@@ -10,12 +10,9 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="Button">
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="BackgroundColor" Value="Green" />
-                <Setter Property="HorizontalOptions" Value="End" />
-                <Setter Property="WidthRequest" Value="100" />
-            </Style>
+            <Style BasedOn="{StaticResource SolidBrandButton}" TargetType="Button" />
+        </ResourceDictionary>
+        <ResourceDictionary>
             <DataTemplate x:Key="sampleTemplate" x:DataType="local:Sample">
                 <!--<Grid Padding="10">
                     <Grid.ColumnDefinitions>
