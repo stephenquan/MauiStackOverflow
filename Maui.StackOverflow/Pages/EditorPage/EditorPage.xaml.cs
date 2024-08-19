@@ -1,30 +1,28 @@
 using System.Diagnostics;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Maui.StackOverflow;
 
 public partial class EditorPage : ContentPage
 {
-	public static readonly BindableProperty IsEditorFocusedProperty = BindableProperty.Create(nameof(IsEditorFocused), typeof(bool), typeof(EditorPage), false);
-	public bool IsEditorFocused
+	[RelayCommand]
+	void MyFocused(int magic)
 	{
-		get => (bool)GetValue(IsEditorFocusedProperty);
-		set => SetValue(IsEditorFocusedProperty, value);
+		Debug.WriteLine($"OnFocused magic:{magic}");
 	}
+
+	[RelayCommand]
+	void MyUnfocused(int magic)
+	{
+		Debug.WriteLine($"OnUnfocused magic:{magic}");
+	}
+
+	public int Magic { get; set; } = 42;
 
 	public EditorPage()
 	{
 		InitializeComponent();
 
 		BindingContext = this;
-
-		PropertyChanged += (s, e) =>
-		{
-			switch (e.PropertyName)
-			{
-				case nameof(IsEditorFocused):
-					Debug.WriteLine($"IsEditorFocused changed to {IsEditorFocused}");
-					break;
-			}
-		};
 	}
 }

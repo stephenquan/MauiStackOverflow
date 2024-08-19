@@ -10,7 +10,10 @@
 
     <VerticalStackLayout Spacing="20">
         <Entry Placeholder="Entry1" />
-        <local:CustomEditor IsEditorFocused="{Binding IsEditorFocused, Mode=OneWayToSource, Source={Reference thisPage}}" />
+        <local:CustomEditor
+            CommandParameter="{Binding Magic}"
+            FocusedCommand="{Binding MyFocusedCommand}"
+            UnfocusedCommand="{Binding MyUnfocusedCommand}" />
         <Entry Placeholder="Entry2" />
     </VerticalStackLayout>
 

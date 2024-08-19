@@ -2,11 +2,16 @@
 <ContentView
     x:Class="Maui.StackOverflow.CustomEditor"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow">
     <ContentView.ControlTemplate>
         <ControlTemplate>
             <Border>
-                <Editor IsFocused="{TemplateBinding IsEditorFocused, Mode=OneWayToSource}" Placeholder="CustomEditor" />
+                <local:CustomEditorInner
+                    CommandParameter="{TemplateBinding CommandParameter}"
+                    FocusedCommand="{TemplateBinding FocusedCommand}"
+                    Placeholder="CustomEditor"
+                    UnfocusedCommand="{TemplateBinding UnfocusedCommand}" />
             </Border>
         </ControlTemplate>
     </ContentView.ControlTemplate>
