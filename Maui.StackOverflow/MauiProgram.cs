@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace Maui.StackOverflow;
 
@@ -9,6 +10,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseMauiCommunityToolkit()
 			.RegisterSample<RgbColorPage>(nameof(RgbColorPage))
 			.RegisterSample<ThemePage>(nameof(ThemePage))
 			.RegisterSample<UserThemePage>(nameof(UserThemePage))
