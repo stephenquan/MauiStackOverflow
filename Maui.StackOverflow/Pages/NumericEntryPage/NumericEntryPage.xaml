@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.NumericEntryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    Title="NumericEntryPage"
+    x:DataType="local:NumericEntryPage">
+
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="Settings">
+            <MenuFlyoutItem Text="Help">
+                <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="H" />
+                </MenuFlyoutItem.KeyboardAccelerators>
+            </MenuFlyoutItem>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <VerticalStackLayout Spacing="20">
+        <Label Text="Enter a number" />
+        <local:MaskEntry Placeholder="Numeric entry" />
+        <Grid>
+            <Entry
+                CursorPosition="{Binding CursorPosition, Source={Reference e2}}"
+                IsReadOnly="True"
+                SelectionLength="{Binding CursorPosition, Source={Reference e2}}"
+                Text="{Binding NumericText}"
+                TextColor="Blue" />
+            <Entry
+                x:Name="e2"
+                Placeholder="Numeric entry2"
+                Text="{Binding NumericText, Mode=TwoWay}"
+                TextColor="Transparent" />
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentPage>
