@@ -6,7 +6,7 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		foreach (var sample in Samples.Items)
+		foreach (var sample in Samples.AllSamples)
 		{
 			Routing.RegisterRoute(sample.Name, sample.Page);
 		}

@@ -2,30 +2,32 @@
 
 public class Sample
 {
-	public string Name { get; }
 	public Type? Page { get; }
+	public string Name { get; }
+	public string Description { get; }
 
-	public Sample(string name, Type page)
+	public Sample(Type page, string name, string description)
 	{
-		Name = name;
 		Page = page;
+		Name = name;
+		Description = description;
 	}
 }
 
 public static class Samples
 {
-	public static List<Sample> Items { get; } = new List<Sample>();
+	public static List<Sample> AllSamples { get; } = new List<Sample>();
 
-	public static MauiAppBuilder RegisterSample(this MauiAppBuilder builder, string name, Type page)
+	public static MauiAppBuilder RegisterSample(this MauiAppBuilder builder, Type page, string name, string description)
 	{
-		Items.Add(new Sample(name, page));
+		AllSamples.Add(new Sample(page, name, description));
 		builder.Services.AddTransient(page);
 		return builder;
 	}
 
-	public static MauiAppBuilder RegisterSample<T>(this MauiAppBuilder builder, string name)
+	public static MauiAppBuilder RegisterSample<T>(this MauiAppBuilder builder, string name, string description)
 	{
-		return builder.RegisterSample(name, typeof(T));
+		return builder.RegisterSample(typeof(T), name, description);
 	}
 }
 
