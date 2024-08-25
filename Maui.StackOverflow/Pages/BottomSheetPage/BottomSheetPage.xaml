@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.BottomSheetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    x:Name="page"
+    Title="NewPage1"
+    x:DataType="local:BottomSheetPage"
+    BindingContext="{Reference page}">
+
+    <Grid
+        x:Name="grid"
+        BindingContext="{Reference grid}"
+        HeightRequest="100"
+        HorizontalOptions="Start"
+        VerticalOptions="Start"
+        WidthRequest="100">
+        <Rectangle
+            Fill="Yellow"
+            Stroke="Red"
+            StrokeThickness="2" />
+
+        <Grid Rotation="90">
+            <Path
+                Aspect="Uniform"
+                Data="M 0,0 .5,.5 0,1 0,0"
+                Fill="Blue"
+                HorizontalOptions="Start" />
+        </Grid>
+
+        <Line
+            Stroke="Black"
+            X1="0"
+            X2="{Binding Width}"
+            Y1="0"
+            Y2="{Binding Height}" />
+        <Line
+            Stroke="Black"
+            X1="{Binding Width}"
+            X2="0"
+            Y1="0"
+            Y2="{Binding Height}" />
+    </Grid>
+
+</ContentPage>
