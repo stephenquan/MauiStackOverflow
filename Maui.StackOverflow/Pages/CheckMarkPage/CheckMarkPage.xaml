@@ -11,30 +11,8 @@
             BackgroundColor="Orange"
             WidthRequest="300">
             <Grid Padding="0" ColumnDefinitions="Auto,*">
-                <!--<CheckBox BackgroundColor="Green" Color="White" />-->
                 <Grid HeightRequest="32" WidthRequest="32">
-                    <Frame
-                        BackgroundColor="Transparent"
-                        BorderColor="Green"
-                        CornerRadius="5"
-                        HeightRequest="20"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="20">
-                        <Frame.Triggers>
-                            <DataTrigger
-                                Binding="{Binding IsChecked, Source={x:Reference checkBox}}"
-                                TargetType="Frame"
-                                Value="True">
-                                <Setter Property="BackgroundColor" Value="Green" />
-                                <Setter Property="BorderColor" Value="Green" />
-                            </DataTrigger>
-                        </Frame.Triggers>
-                    </Frame>
-                    <Path
-                        Data="M 10 16 l 4 4 l 6 -6"
-                        IsVisible="{Binding IsChecked, Source={x:Reference checkBox}}"
-                        Stroke="Cyan" />
+                    <Image Source="{Binding IsChecked, Source={Reference checkBox}, StringFormat='icon_check_{0}.png'}" />
                     <CheckBox x:Name="checkBox" Opacity="0" />
                 </Grid>
                 <Label

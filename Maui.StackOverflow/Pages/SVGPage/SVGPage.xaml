@@ -17,14 +17,17 @@
         </Grid>
 
         <Grid
-            BackgroundColor="#ffe"
+            BackgroundColor="Orange"
             HeightRequest="256"
             WidthRequest="256">
-            <Path
-                Aspect="Fill"
-                Data="M 0 0 L 32 32 L 0 0 L 4 4 L 28 4 L 28 28 L 4 28 L 4 4 z"
-                Fill="Red"
-                Stroke="Transparent" />
+            <Grid.Clip>
+                <PathGeometry>
+                    <PathFigure StartPoint="50,50">
+                        <LineSegment Point="100,100" />
+                        <LineSegment Point="100,50" />
+                    </PathFigure>
+                </PathGeometry>
+            </Grid.Clip>
         </Grid>
 
 
