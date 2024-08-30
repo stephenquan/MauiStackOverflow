@@ -23,6 +23,7 @@ public static class MauiProgram
 			.RegisterSample<SVGPage>(nameof(SVGPage), "Demonstrates SVG usages")
 			.RegisterSample<ThemePage>(nameof(ThemePage), "Demonstrates some AppThemeBinding usages")
 			.RegisterSample<UserThemePage>(nameof(UserThemePage), "Demonstrates a custom UserTheme view model")
+			.RegisterSample<VolumeSliderPage>(nameof(VolumeSliderPage), "Demonstrates a custom slider")
 			.RegisterSample<WebPage>(nameof(WebPage), "Demonstrates running adhoc async code in a WebView")
 			.AddLocalization<AppStrings>()
 			.ConfigureFonts(fonts =>
