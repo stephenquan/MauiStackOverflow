@@ -5,30 +5,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="SVGPage">
 
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="20">
         <Label HorizontalOptions="Center" Text="Simple Path" />
 
-        <Grid HeightRequest="200" WidthRequest="100">
+        <Border Padding="1" HorizontalOptions="Center">
             <Path
                 Aspect="Uniform"
-                Data="M 10,100 L 100,100 100,50Z"
+                Data="M 0 0 L 32 32 L 0 0 L 4 4 h 8 v 8 h -8 v -8 L 0 0 L 24 4 l 4 8 h -8 l 4 -8 L 0 0 L 16 20 a 4 4 0 0 1 0 8 a 4 4 0 0 1 0 -8 L 0 0"
                 Fill="Red"
-                Stroke="Black" />
-        </Grid>
+                HeightRequest="100"
+                WidthRequest="100" />
+        </Border>
 
-        <Grid
-            BackgroundColor="Orange"
-            HeightRequest="256"
-            WidthRequest="256">
-            <Grid.Clip>
-                <PathGeometry>
-                    <PathFigure StartPoint="50,50">
-                        <LineSegment Point="100,100" />
-                        <LineSegment Point="100,50" />
-                    </PathFigure>
-                </PathGeometry>
-            </Grid.Clip>
-        </Grid>
+        <Border Padding="1" HorizontalOptions="Center">
+            <Path
+                Aspect="Uniform"
+                Data="M 0 0 L 32 32 L 0 0 L 4 4 h 8 v 8 h -8 v -8 l 1 1 v 6 h 6 v -6 h -6 l -1 -1 L 0 0 L 24 4 l 4 8 h -8 l 4 -8 v 2 l -2.5 5 h 5 l -2.5 -5 v -2 L 0 0 L 16 20 a 4 4 0 0 1 0 8 a 4 4 0 0 1 0 -8 v 1 a 3 3 0 0 0 0 6 a 3 3 0 0 0 0 -6 v -1 L 0 0"
+                Fill="Red"
+                HeightRequest="100"
+                WidthRequest="100" />
+        </Border>
+
 
 
         <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
