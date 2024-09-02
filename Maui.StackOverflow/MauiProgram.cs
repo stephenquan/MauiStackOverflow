@@ -25,6 +25,7 @@ public static class MauiProgram
 			.RegisterSample<RgbColorPage>(nameof(RgbColorPage), "RgbColor page")
 			.RegisterSample<SVGPage>(nameof(SVGPage), "Demonstrates SVG usages")
 			.RegisterSample<ThemePage>(nameof(ThemePage), "Demonstrates some AppThemeBinding usages")
+			.RegisterSample<UserBoolPage>(nameof(UserBoolPage), "Demonstrates a user boolean")
 			.RegisterSample<TintPage>(nameof(TintPage), "Demonstrates some AppThemeBinding usages")
 			.RegisterSample<UserThemePage>(nameof(UserThemePage), "Demonstrates a custom UserTheme view model")
 			.RegisterSample<VolumeSliderPage>(nameof(VolumeSliderPage), "Demonstrates a custom slider")
