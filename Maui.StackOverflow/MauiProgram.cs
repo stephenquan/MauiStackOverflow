@@ -17,6 +17,7 @@ public static class MauiProgram
 			.RegisterSample<DockPage>(nameof(DockPage), "Dock Layout page")
 			.RegisterSample<EntryMaskPage>(nameof(EntryMaskPage), "Demonstrates EntryMask behavior")
 			.RegisterSample<EditorPage>(nameof(EditorPage), "Editor page")
+			.RegisterSample<FileSaverPage>(nameof(FileSaverPage), "FileSaver page")
 			.RegisterSample<FlexPage>(nameof(FlexPage), "FlexLayout page")
 			.RegisterSample<LocalizedPage>(nameof(LocalizedPage), "Localized page")
 			.RegisterSample<NumericEntryPage>(nameof(NumericEntryPage), "Demonstrates NumericEntry control")

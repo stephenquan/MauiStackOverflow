@@ -9,38 +9,33 @@
     x:DataType="local:BottomSheetPage"
     BindingContext="{Reference page}">
 
-    <Grid
-        x:Name="grid"
-        BindingContext="{Reference grid}"
-        HeightRequest="100"
-        HorizontalOptions="Start"
-        VerticalOptions="Start"
-        WidthRequest="100">
-        <Rectangle
-            Fill="Yellow"
-            Stroke="Red"
-            StrokeThickness="2" />
-
-        <Grid Rotation="90">
-            <Path
-                Aspect="Uniform"
-                Data="M 0,0 .5,.5 0,1 0,0"
-                Fill="Blue"
-                HorizontalOptions="Start" />
-        </Grid>
-
-        <Line
-            Stroke="Black"
-            X1="0"
-            X2="{Binding Width}"
-            Y1="0"
-            Y2="{Binding Height}" />
-        <Line
-            Stroke="Black"
-            X1="{Binding Width}"
-            X2="0"
-            Y1="0"
-            Y2="{Binding Height}" />
-    </Grid>
+    <local:BottomSheetView>
+        <VerticalStackLayout>
+            <ScrollView>
+                <VerticalStackLayout Padding="30,0" Spacing="25">
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="185"
+                        SemanticProperties.Description="dot net bot in a race car number eight"
+                        Source="dotnet_bot.png" />
+                    <Label
+                        SemanticProperties.HeadingLevel="Level1"
+                        Style="{StaticResource Headline}"
+                        Text="Hello, World!" />
+                    <Label
+                        SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                        SemanticProperties.HeadingLevel="Level2"
+                        Style="{StaticResource SubHeadline}"
+                        Text="Welcome" />
+                    <Button
+                        x:Name="CounterBtn"
+                        Clicked="OnCounterClicked"
+                        HorizontalOptions="Fill"
+                        SemanticProperties.Hint="Counts the number of times you click"
+                        Text="Click me!" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </local:BottomSheetView>
 
 </ContentPage>
