@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Maui.StackOverflow.BorderLabel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.ControlTemplate>
+        <ControlTemplate>
+            <Grid>
+                <Border
+                    Margin="10,10,10,10"
+                    Padding="0,0,0,0"
+                    Stroke="Black"
+                    StrokeShape="RoundRectangle 10,10,10,10">
+                    <ContentPresenter />
+                </Border>
+                <Border
+                    HorizontalOptions="Start"
+                    Stroke="Transparent"
+                    TranslationX="30"
+                    VerticalOptions="Start">
+                    <Label
+                        Padding="10,0,10,0"
+                        BackgroundColor="White"
+                        HorizontalOptions="Start"
+                        Text="Colors"
+                        VerticalOptions="Start" />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>
