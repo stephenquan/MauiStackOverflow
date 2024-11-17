@@ -6,6 +6,9 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(Maui.StackOverflow.Answers.RgbColor.RgbColorPage), typeof(Maui.StackOverflow.Answers.RgbColor.RgbColorPage));
+		foreach (var sample in Samples.AllSamples)
+		{
+			Routing.RegisterRoute(sample.Name, sample.Page);
+		}
 	}
 }

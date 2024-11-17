@@ -1,4 +1,4 @@
-namespace Maui.StackOverflow.Answers.RgbColor;
+namespace Maui.StackOverflow;
 
 public partial class RgbColorPage : ContentPage
 {

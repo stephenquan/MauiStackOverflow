@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.RadioStylePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RadioStylePage">
+
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="RadioButtonTemplate">
+            <Border BackgroundColor="Transparent" Stroke="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid
+                        Grid.Column="0"
+                        HeightRequest="20"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="20">
+                        <Ellipse
+                            x:Name="border_circle"
+                            Fill="Transparent"
+                            HeightRequest="18"
+                            HorizontalOptions="Center"
+                            Stroke="{AppThemeBinding Light='#dddddd',
+                                                     Dark='#999999'}"
+                            StrokeThickness="2"
+                            VerticalOptions="Center"
+                            WidthRequest="18" />
+                        <Ellipse
+                            x:Name="check"
+                            Fill="{AppThemeBinding Light='#dddddd',
+                                                   Dark='#999999'}"
+                            HeightRequest="10"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            WidthRequest="10" />
+                    </Grid>
+                    <ContentPresenter
+                        Grid.Column="1"
+                        Margin="10,0,0,0"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center" />
+                </Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CheckedStates">
+                            <VisualState x:Name="Checked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="check" Property="Opacity" Value="1" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter TargetName="check" Property="Opacity" Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Border>
+        </ControlTemplate>
+
+        <Style x:Key="RadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="ControlTemplate" Value="{StaticResource RadioButtonTemplate}" />
+        </Style>
+
+    </ContentPage.Resources>
+    <Frame>
+        <VerticalStackLayout>
+            <RadioButton ControlTemplate="{StaticResource RadioButtonTemplate}">
+                <RadioButton.Content>
+                    <Frame>
+                        <Label Text="Cat" />
+                    </Frame>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton Style="{StaticResource RadioButtonStyle}">
+                <RadioButton.Content>
+                    <Label Text="Dog" />
+                </RadioButton.Content>
+            </RadioButton>
+            <!--<Entry>
+                <Entry.Control
+            </Entry>-->
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>

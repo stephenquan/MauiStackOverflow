@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.SVGPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="SVGPage">
+
+    <VerticalStackLayout Spacing="20">
+
+        <Label
+            FontSize="Medium"
+            HorizontalOptions="Center"
+            Text="Path Data with SVG-path syntax" />
+
+        <Border Padding="1" HorizontalOptions="Center">
+            <Path
+                Aspect="Uniform"
+                Data="M 0 0 L 32 32 L 0 0 L 4 4 h 8 v 8 h -8 v -8 l 1 1 v 6 h 6 v -6 h -6 l -1 -1 L 0 0 L 24 4 l 4 8 h -8 l 4 -8 v 2 l -2.5 5 h 5 l -2.5 -5 v -2 L 0 0 L 16 20 a 4 4 0 0 1 0 8 a 4 4 0 0 1 0 -8 v 1 a 3 3 0 0 0 0 6 a 3 3 0 0 0 0 -6 v -1 L 0 0"
+                Fill="Red"
+                HeightRequest="100"
+                WidthRequest="100" />
+        </Border>
+
+    </VerticalStackLayout>
+
+</ContentPage>

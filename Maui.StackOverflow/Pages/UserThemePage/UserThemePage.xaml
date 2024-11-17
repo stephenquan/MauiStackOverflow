@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.UserThemePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    x:Name="thisPage"
+    Title="UserThemePage"
+    x:DataType="local:UserThemePage"
+    BackgroundColor="{local:UserTheme BackgroundColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="{local:UserTheme TextColor}" />
+                <Setter Property="BackgroundColor" Value="{local:UserTheme BackgroundColor}" />
+                <Setter Property="BorderColor" Value="{local:UserTheme TextColor}" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{local:UserTheme TextColor}" />
+                <Setter Property="BackgroundColor" Value="{local:UserTheme BackgroundColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout>
+        <Label Text="{Binding UserThemes.CurrentThemeName, StringFormat='Theme: {0}'}" />
+
+        <CollectionView ItemsSource="{Binding UserThemes.ThemeNames}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <Grid Padding="10,10,10,10">
+                        <Button Clicked="OnThemeClicked" Text="{Binding}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Text="{Binding UserThemes.CurrentTheme.TextColor}" />
+        <Label Text="{Binding UserThemes.CurrentTheme.BackgroundColor}" />
+        <Label Text="{local:UserTheme}" />
+    </VerticalStackLayout>
+</ContentPage>

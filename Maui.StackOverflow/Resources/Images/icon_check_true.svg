@@ -1,0 +1,6 @@
+<!-- icon_check_true.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+    <rect x="5" y="5" width="22" height="22" fill="green" rx="3" ry="3" />
+    <rect x="7" y="7" width="18" height="18" fill="white" rx="2" ry="2" />
+    <path fill="green" d="M 9 17 l 5 5 l 9 -9 l -2 -2 l -7 7 l -3 -3 z" />
+</svg>

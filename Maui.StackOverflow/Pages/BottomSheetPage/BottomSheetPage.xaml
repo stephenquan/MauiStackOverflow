@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.BottomSheetPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    x:Name="page"
+    Title="BottomSheetPage"
+    x:DataType="local:BottomSheetPage"
+    BindingContext="{Reference page}">
+
+    <local:BottomSheetView>
+        <VerticalStackLayout>
+            <ScrollView>
+                <VerticalStackLayout Padding="30,0" Spacing="25">
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="185"
+                        SemanticProperties.Description="dot net bot in a race car number eight"
+                        Source="dotnet_bot.png" />
+                    <Label
+                        SemanticProperties.HeadingLevel="Level1"
+                        Style="{StaticResource Headline}"
+                        Text="Hello, World!" />
+                    <Label
+                        SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                        SemanticProperties.HeadingLevel="Level2"
+                        Style="{StaticResource SubHeadline}"
+                        Text="Welcome" />
+                    <Button
+                        x:Name="CounterBtn"
+                        Clicked="OnCounterClicked"
+                        HorizontalOptions="Fill"
+                        SemanticProperties.Hint="Counts the number of times you click"
+                        Text="Click me!" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </VerticalStackLayout>
+    </local:BottomSheetView>
+
+</ContentPage>

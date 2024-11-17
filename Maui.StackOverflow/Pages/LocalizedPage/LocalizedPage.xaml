@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.LocalizedPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    Title="LocalizedPage">
+
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        Spacing="20"
+        VerticalOptions="Center">
+
+        <Label
+            HorizontalOptions="Center"
+            Text="{Binding [LBL_HELLO_WORLD], Source={x:Static local:LocalizationManager.Current}}"
+            VerticalOptions="Center" />
+
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+            <Button Clicked="OnLanguageClicked" Text="en" />
+            <Button Clicked="OnLanguageClicked" Text="fr" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

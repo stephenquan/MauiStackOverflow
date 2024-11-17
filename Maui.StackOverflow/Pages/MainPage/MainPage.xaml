@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    x:Name="this"
+    Title="Home">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="sampleTemplate" x:DataType="local:Sample">
+                <Grid Padding="10,10,10,10">
+                    <Border
+                        Padding="10,10,10,10"
+                        BackgroundColor="#ffe"
+                        Stroke="Black"
+                        StrokeShape="RoundRectangle 8,8,8,8"
+                        StrokeThickness="1">
+                        <VerticalStackLayout>
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label FontSize="Medium" Text="{Binding Name}" />
+                                <Button
+                                    Grid.Column="1"
+                                    Clicked="OnNavigate"
+                                    CommandParameter="{Binding Name}"
+                                    Text="Try"
+                                    WidthRequest="50" />
+                            </Grid>
+                            <Label Text="{Binding Description}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <CollectionView
+            ItemTemplate="{StaticResource sampleTemplate}"
+            ItemsLayout="VerticalGrid, 4"
+            ItemsSource="{x:Static local:Samples.AllSamples}" />
+    </Grid>
+
+</ContentPage>

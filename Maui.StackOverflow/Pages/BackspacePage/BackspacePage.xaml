@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.BackspacePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    Title="BackspacePage">
+    <VerticalStackLayout>
+        <Label
+            HorizontalOptions="Center"
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" />
+        <local:EntryWithBackspace />
+
+        <Grid HeightRequest="50" WidthRequest="250">
+            <Border
+                Margin="50,10"
+                Padding="0,10"
+                Stroke="#2B0B98"
+                StrokeShape="RoundRectangle 10,10,10,10"
+                StrokeThickness="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".2*" />
+                        <ColumnDefinition Width=".8*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Source="cpi_browser_logo.ico" />
+
+                    <VerticalStackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Padding="10"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{}}{Binding Text}"
+                            TextColor="{AppThemeBinding Dark={StaticResource White},
+                                                        Light={StaticResource Black},
+                                                        Default={StaticResource Black}}" />
+                        <Label
+                            FontAttributes="Italic"
+                            Text="{}}{Binding Description}"
+                            TextColor="{AppThemeBinding Dark={StaticResource White},
+                                                        Light={StaticResource Black},
+                                                        Default={StaticResource Black}}" />
+                    </VerticalStackLayout>
+
+                </Grid>
+                <Border.Triggers>
+                    <DataTrigger
+                        Binding="{Binding ZIndex, Source={Reference btn}}"
+                        TargetType="Border"
+                        Value="2">
+                        <Setter Property="Stroke" Value="Green" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding IsPressed, Source={Reference btn}}"
+                        TargetType="Border"
+                        Value="True">
+                        <Setter Property="Stroke" Value="Red" />
+                    </DataTrigger>
+                </Border.Triggers>
+            </Border>
+            <Button
+                x:Name="btn"
+                BackgroundColor="Transparent"
+                BorderColor="Lime"
+                BorderWidth="10"
+                Opacity="0.5"
+                Text="Click me!">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="Black" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="PointerOver">
+                            <VisualState.Setters>
+                                <Setter Property="BorderColor" Value="Orange" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Button>
+        </Grid>
+        <Entry
+            BackgroundColor="Transparent"
+            Opacity="0.5"
+            Text="Click me!">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Black" />
+                            <Setter Property="Opacity" Value="1" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Red" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Orange" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Entry>
+    </VerticalStackLayout>
+</ContentPage>

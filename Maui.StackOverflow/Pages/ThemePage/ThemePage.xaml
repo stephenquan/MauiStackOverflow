@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.ThemePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    Title="ThemePage"
+    x:DataType="local:ThemeModel"
+    BindingContext="{local:ThemeModel}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style BasedOn="{StaticResource SolidBrandButton}" TargetType="Button" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="10,10,10,10" RowDefinitions="Auto,*,*,Auto">
+        <Grid>
+            <Label Text="Image: Yellow Moon (Light Mode), Blue Moon (Dark Mode)" />
+        </Grid>
+
+        <Grid Grid.Row="1" Padding="10,10,10,10">
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ThemeItem">
+                        <Frame>
+                            <Image
+                                HeightRequest="64"
+                                Source="{Binding LightImage}"
+                                WidthRequest="64">
+                                <Image.Triggers>
+                                    <DataTrigger
+                                        Binding="{AppThemeBinding Dark=D}"
+                                        TargetType="Image"
+                                        Value="D">
+                                        <Setter Property="Source" Value="{Binding DarkImage}" />
+                                    </DataTrigger>
+                                </Image.Triggers>
+                            </Image>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="2" Padding="10,10,10,10">
+            <CollectionView ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ThemeItem">
+                        <Frame>
+                            <Image
+                                HeightRequest="64"
+                                Style="{AppThemeBinding Light={StaticResource lightTheme},
+                                                        Dark={StaticResource darkTheme}}"
+                                WidthRequest="64">
+                                <Image.Resources>
+                                    <ResourceDictionary>
+                                        <Style x:Key="lightTheme" TargetType="Image">
+                                            <Setter Property="Source" Value="{Binding LightImage}" />
+                                        </Style>
+                                        <Style x:Key="darkTheme" TargetType="Image">
+                                            <Setter Property="Source" Value="{Binding DarkImage}" />
+                                        </Style>
+                                    </ResourceDictionary>
+                                </Image.Resources>
+                            </Image>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="3" Padding="10,10,10,10">
+            <Button
+                Clicked="OnDayNightClicked"
+                HorizontalOptions="Center"
+                Text="Day/Night" />
+        </Grid>
+    </Grid>
+
+</ContentPage>

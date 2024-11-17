@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.VolumeSliderPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="VolumeSliderPage"
+    BackgroundColor="Black">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Grid
+            Padding="10,10,10,10"
+            BackgroundColor="#323337"
+            HorizontalOptions="Center">
+            <Grid
+                BackgroundColor="#575962"
+                HeightRequest="40"
+                WidthRequest="200">
+                <Grid.Clip>
+                    <RoundRectangleGeometry CornerRadius="5" Rect="0,0,200,40" />
+                </Grid.Clip>
+                <Label
+                    BackgroundColor="#00A3C2"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Center"
+                    Text="MASTER"
+                    TextColor="White"
+                    TranslationX="{Binding Value, Source={Reference slider}}"
+                    VerticalTextAlignment="Center"
+                    WidthRequest="100" />
+                <Slider
+                    x:Name="slider"
+                    HorizontalOptions="Fill"
+                    Maximum="100"
+                    Minimum="0"
+                    Opacity="0"
+                    VerticalOptions="Fill" />
+            </Grid>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
