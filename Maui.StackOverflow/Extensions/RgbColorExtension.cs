@@ -4,7 +4,7 @@
 /// Provides the RgbColor XAML markup extension for creating colors from R, G, B, A bindable properties.
 /// </summary>
 /// <code>
-/// &gt;local:RgbColor R="{Binding ...}", G="{Binding ...}", B="{Binding ...}", A="{Binding ...}" /&lt;
+/// <BoxView Color="{local:RgbColor R={Binding ...}, G={Binding ...}, B={Binding ...}, A={Binding ...}}" />
 /// </code>
 [ContentProperty(nameof(R))]
 public class RgbColorExtension : BindableObject, IMarkupExtension<BindingBase>
