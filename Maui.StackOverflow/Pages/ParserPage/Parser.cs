@@ -4,8 +4,8 @@ namespace Maui.StackOverflow;
 
 public class Parser
 {
-	public string Expr { get; internal set; } = string.Empty;
-	public int ExprIndex { get; internal set; } = 0;
+	public string Expression { get; internal set; } = string.Empty;
+	public int ExpressionIndex { get; internal set; } = 0;
 	public Match? LastMatch { get; internal set; } = null;
 	public Stack<double> Results { get; } = new Stack<double>();
 	public Dictionary<string, Func<double, double, double>> Operators { get; } = new Dictionary<string, Func<double, double, double>>()
@@ -18,19 +18,19 @@ public class Parser
 
 	public double Execute(string expr)
 	{
-		Expr = expr;
-		ExprIndex = 0;
+		Expression = expr;
+		ExpressionIndex = 0;
 		Results.Clear();
-		if (!ParseExpr() || ExprIndex < Expr.Length)
+		if (!ParseExpression() || ExpressionIndex < Expression.Length)
 		{
 			throw new Exception("Invalid expression");
 		}
 		return Results.Pop();
 	}
-	bool ParseExpr() => ParseSum();
-	bool ParseSum() => ParseBinaryOp(@"^\s*(\+|\-)\s*", ParseProduct);
-	bool ParseProduct() => ParseBinaryOp(@"^\s*(\*|\/)\s*", ParsePrimary);
-	bool ParseBinaryOp(string pattern, Func<bool> parseNextPriority)
+	bool ParseExpression() => ParseSum();
+	bool ParseSum() => ParseBinaryOperator(@"^\s*(\+|\-)\s*", ParseProduct);
+	bool ParseProduct() => ParseBinaryOperator(@"^\s*(\*|\/)\s*", ParsePrimary);
+	bool ParseBinaryOperator(string pattern, Func<bool> parseNextPriority)
 	{
 		if (!parseNextPriority())
 		{
@@ -38,14 +38,14 @@ public class Parser
 		}
 		while (ParsePattern(pattern))
 		{
-			string op = LastMatch!.Groups[1].Value;
+			string @operator = LastMatch!.Groups[1].Value;
 			if (!parseNextPriority())
 			{
 				return false;
 			}
 			var b = Results.Pop();
 			var a = Results.Pop();
-			Results.Push(Operators[op](a, b));
+			Results.Push(Operators[@operator](a, b));
 		}
 		return true;
 	}
@@ -58,7 +58,7 @@ public class Parser
 		}
 		if (ParsePattern(@"^\s*\(\s*"))
 		{
-			if (!ParseExpr())
+			if (!ParseExpression())
 			{
 				return false;
 			}
@@ -73,12 +73,12 @@ public class Parser
 	bool ParsePattern(string pattern)
 	{
 		var regex = new Regex(pattern);
-		LastMatch = regex.Match(Expr.Substring(ExprIndex));
+		LastMatch = regex.Match(Expression.Substring(ExpressionIndex));
 		if (!LastMatch!.Success)
 		{
 			return false;
 		}
-		ExprIndex += LastMatch.Groups[0].Length;
+		ExpressionIndex += LastMatch.Groups[0].Length;
 		return true;
 	}
 }
