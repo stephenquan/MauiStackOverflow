@@ -6,10 +6,6 @@
     xmlns:local="clr-namespace:Maui.StackOverflow"
     Title="LocalizedPage">
 
-    <ContentPage.Resources>
-        <Style BasedOn="{StaticResource SolidBrandButton}" TargetType="Button" />
-    </ContentPage.Resources>
-
     <VerticalStackLayout
         HorizontalOptions="Center"
         Spacing="20"
