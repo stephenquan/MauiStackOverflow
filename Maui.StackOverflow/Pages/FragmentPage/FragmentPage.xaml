@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.FragmentPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Name="this"
+    Title="FragmentPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="buttonFragment">
+                <Grid>
+                    <Button
+                        HorizontalOptions="Center"
+                        Text="Button Fragment"
+                        VerticalOptions="Center" />
+                </Grid>
+            </ControlTemplate>
+            <ControlTemplate x:Key="entryFragment">
+                <Grid>
+                    <Entry
+                        HorizontalOptions="Center"
+                        Placeholder="Entry Fragment"
+                        VerticalOptions="Center" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <toolkit:DockLayout>
+        <Border
+            toolkit:DockLayout.DockPosition="Top"
+            BackgroundColor="#eee"
+            HeightRequest="80">
+            <Label
+                toolkit:DockLayout.DockPosition="Top"
+                HorizontalOptions="Center"
+                Text="Header"
+                VerticalOptions="Center" />
+        </Border>
+        <Border toolkit:DockLayout.DockPosition="Bottom" BackgroundColor="#eee">
+            <Grid
+                ColumnDefinitions="*,*,*,*"
+                HeightRequest="70"
+                HorizontalOptions="Fill">
+                <Button
+                    Command="{Binding PopCommand, Source={Reference fragmentManager}}"
+                    HorizontalOptions="Center"
+                    Text="Pop"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Column="1"
+                    Command="{Binding PushCommand, Source={Reference fragmentManager}}"
+                    CommandParameter="{StaticResource buttonFragment}"
+                    HorizontalOptions="Center"
+                    Text="Push Button Fragment"
+                    VerticalOptions="Center" />
+                <Button
+                    Grid.Column="2"
+                    Command="{Binding PushCommand, Source={Reference fragmentManager}}"
+                    CommandParameter="{StaticResource entryFragment}"
+                    HorizontalOptions="Center"
+                    Text="Push Entry Fragment"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Column="3"
+                    HorizontalOptions="Center"
+                    Text="{Binding FragmentCount, Source={Reference fragmentManager}, StringFormat='No. of Fragments: {0}'}"
+                    VerticalOptions="Center" />
+            </Grid>
+        </Border>
+        <local:FragmentManager x:Name="fragmentManager" InitialFragment="{StaticResource buttonFragment}" />
+    </toolkit:DockLayout>
+</ContentPage>

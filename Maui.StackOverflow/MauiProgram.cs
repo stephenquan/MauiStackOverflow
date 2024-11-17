@@ -23,6 +23,7 @@ public static class MauiProgram
 			.RegisterSample<ExpanderPage>(nameof(ExpanderPage), "Expander page")
 			.RegisterSample<FileSaverPage>(nameof(FileSaverPage), "FileSaver page")
 			.RegisterSample<FlexPage>(nameof(FlexPage), "FlexLayout page")
+			.RegisterSample<FragmentPage>(nameof(FragmentPage), "Demonstrates a fragment manager implementation based on ControlView.")
 			.RegisterSample<ImageMapPage>(nameof(ImageMapPage), "Demonstrates an image map")
 			.RegisterSample<LocalizedPage>(nameof(LocalizedPage), "Localized page")
 			.RegisterSample<NumericEntryPage>(nameof(NumericEntryPage), "Demonstrates NumericEntry control")

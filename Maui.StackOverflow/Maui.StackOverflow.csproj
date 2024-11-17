@@ -103,6 +103,9 @@
 	  <MauiXaml Update="Pages\Common\RefreshPage\RefreshPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\FragmentPage\FragmentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
