@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Maui.StackOverflow"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Name="this"
     Title="FragmentPage">
@@ -13,7 +14,7 @@
                 <Grid>
                     <Button
                         HorizontalOptions="Center"
-                        Text="Button Fragment"
+                        Text="{Binding ., Source={x:Static sys:DateTime.Now}, StringFormat='Button Fragment: {0}'}"
                         VerticalOptions="Center" />
                 </Grid>
             </ControlTemplate>
@@ -21,7 +22,7 @@
                 <Grid>
                     <Entry
                         HorizontalOptions="Center"
-                        Placeholder="Entry Fragment"
+                        Placeholder="{Binding ., Source={x:Static sys:DateTime.Now}, StringFormat='Entry Fragment: {0}'}"
                         VerticalOptions="Center" />
                 </Grid>
             </ControlTemplate>
