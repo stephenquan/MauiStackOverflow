@@ -17,7 +17,6 @@ public partial class FragmentManager : Grid
 
     public int FragmentCount => this.Children.Count;
 
-
     [RelayCommand]
     public async Task Push(ControlTemplate fragment)
     {
