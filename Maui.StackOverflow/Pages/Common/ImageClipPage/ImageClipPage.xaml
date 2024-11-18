@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.ImageClipPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ImageClipPage">
+    <VerticalStackLayout>
+        <Border HeightRequest="100">
+            <ScrollView IsEnabled="False" VerticalScrollBarVisibility="Never">
+                <Image
+                    Aspect="AspectFill"
+                    Source="t_pose.png"
+                    WidthRequest="128">
+                    <Image.Clip>
+                        <RectangleGeometry Rect="0,0,128,100" />
+                    </Image.Clip>
+                </Image>
+            </ScrollView>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
