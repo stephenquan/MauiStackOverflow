@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Maui.StackOverflow"
     x:Name="this"
-    Title="Home">
+    Title="Home"
+    x:DataType="local:MainPage"
+    BindingContext="{Reference this}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -35,11 +37,18 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid RowDefinitions="*, Auto">
         <CollectionView
             ItemTemplate="{StaticResource sampleTemplate}"
             ItemsLayout="VerticalGrid, 4"
             ItemsSource="{x:Static local:Samples.AllSamples}" />
+
+        <Border
+            Grid.Row="1"
+            Padding="10,10,10,10"
+            Stroke="Transparent">
+            <Label Text="{Binding MauiVersion}" />
+        </Border>
     </Grid>
 
 </ContentPage>
