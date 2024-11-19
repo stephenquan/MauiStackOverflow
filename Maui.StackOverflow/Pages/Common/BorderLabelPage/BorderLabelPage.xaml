@@ -5,17 +5,36 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Maui.StackOverflow"
     Title="BorderLabelPage">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
 
-        <local:BorderLabel>
-            <Frame>
-                <Entry />
-            </Frame>
-        </local:BorderLabel>
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" WidthRequest="500">
+            <Label
+                HorizontalOptions="Center"
+                Text="This demonstrates a Border component with Title text displayed on the border."
+                VerticalOptions="Center" />
 
-    </VerticalStackLayout>
+            <local:BorderLabel Title="Enter your name">
+                <Entry Margin="10,10,10,10" Placeholder="Enter your name" />
+            </local:BorderLabel>
+
+            <local:BorderLabel Title="Choose a house">
+                <VerticalStackLayout Margin="10,10,10,10">
+                    <RadioButton Content="Gryffindor" />
+                    <RadioButton Content="Ravenclaw" />
+                    <RadioButton Content="Hufflepuff" />
+                    <RadioButton Content="Slyherin" />
+                </VerticalStackLayout>
+            </local:BorderLabel>
+
+            <local:BorderLabel Title="Comments">
+                <Editor
+                    Margin="10,10,10,10"
+                    AutoSize="TextChanges"
+                    HeightRequest="100"
+                    Placeholder="Your comments" />
+            </local:BorderLabel>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

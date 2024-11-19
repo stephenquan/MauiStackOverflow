@@ -117,7 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BTN_CLICKED_1_TIME" xml:space="preserve">
+    <value>Clicked {0} time</value>
+  </data>
+  <data name="BTN_CLICKED_N_TIMES" xml:space="preserve">
+    <value>Clicked {0} times</value>
+  </data>
+  <data name="BTN_CLICK_ME" xml:space="preserve">
+    <value>Click me!</value>
+  </data>
   <data name="LBL_HELLO_WORLD" xml:space="preserve">
-    <value>Hello World!</value>
+    <value>Hello, World!</value>
+  </data>
+  <data name="LBL_WELCOME" xml:space="preserve">
+    <value>Welcome</value>
   </data>
 </root>

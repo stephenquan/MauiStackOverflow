@@ -3,23 +3,59 @@
     x:Class="Maui.StackOverflow.LocalizedPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:g="clr-namespace:System.Globalization;assembly=System.Runtime"
     xmlns:local="clr-namespace:Maui.StackOverflow"
-    Title="LocalizedPage">
+    x:Name="this"
+    Title="LocalizedPage"
+    x:DataType="local:LocalizedPage"
+    BindingContext="{Reference this}">
 
-    <VerticalStackLayout
-        HorizontalOptions="Center"
-        Spacing="20"
-        VerticalOptions="Center">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
 
-        <Label
-            HorizontalOptions="Center"
-            Text="{Binding [LBL_HELLO_WORLD], Source={x:Static local:LocalizationManager.Current}}"
-            VerticalOptions="Center" />
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="185"
+                SemanticProperties.Description="dot net bot in a race car number eight"
+                Source="dotnet_bot.png" />
 
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
-            <Button Clicked="OnLanguageClicked" Text="en" />
-            <Button Clicked="OnLanguageClicked" Text="fr" />
-        </HorizontalStackLayout>
+            <Label
+                SemanticProperties.HeadingLevel="Level1"
+                Style="{StaticResource Headline}"
+                Text="{local:Localize LBL_HELLO_WORLD}" />
 
-    </VerticalStackLayout>
+            <Label
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.HeadingLevel="Level2"
+                Style="{StaticResource SubHeadline}"
+                Text="{local:Localize LBL_WELCOME}" />
+
+            <Button
+                x:Name="CounterBtn"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Text="{local:Localize BTN_CLICK_ME}" />
+
+            <CollectionView
+                HorizontalOptions="Fill"
+                ItemsLayout="VerticalGrid, 4"
+                ItemsSource="{Binding Languages}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="g:CultureInfo">
+                        <Grid>
+                            <Button
+                                BackgroundColor="Transparent"
+                                Command="{Binding SetCultureCommand, Source={x:Static local:LocalizationManager.Current}}"
+                                CommandParameter="{Binding .}"
+                                HorizontalOptions="Start"
+                                Text="{Binding Name}"
+                                TextColor="Blue" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
