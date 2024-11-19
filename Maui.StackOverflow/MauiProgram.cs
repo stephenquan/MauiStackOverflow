@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
 using Maui.StackOverflow.Resources.Strings;
+using Microsoft.Extensions.Logging;
 
 namespace Maui.StackOverflow;
 
@@ -50,9 +50,6 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
-		builder.Services.AddTransient<MainPage>();
-		builder.Services.AddSingleton<UserThemes>();
 
 		return builder.Build();
 	}

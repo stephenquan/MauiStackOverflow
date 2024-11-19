@@ -22,6 +22,7 @@ public static class Samples
 	{
 		AllSamples.Add(new Sample(page, name, description));
 		builder.Services.AddTransient(page);
+		Routing.RegisterRoute(name, page);
 		return builder;
 	}
 
