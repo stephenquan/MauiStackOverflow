@@ -3,7 +3,10 @@
     x:Class="Maui.StackOverflow.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Maui.StackOverflow">
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    x:Name="this"
+    x:DataType="local:MainPage"
+    BindingContext="{Reference this}">
 
     <!--<ScrollView>
         <VerticalStackLayout
@@ -73,7 +76,7 @@
             Grid.Row="1"
             Padding="10,10,10,10"
             Stroke="Transparent">
-            <Label Text="{Binding MauiVersion}" />
+            <Label Text="{Binding MauiVersion, StringFormat='MauiVersion: {0}'}" />
         </Border>
     </Grid>
 
