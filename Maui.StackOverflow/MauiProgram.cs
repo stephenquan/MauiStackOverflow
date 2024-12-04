@@ -15,6 +15,7 @@ public static class MauiProgram
 			.RegisterSample<AnimPopupPage>(nameof(AnimPopupPage), "Demonstrates an animating popup")
 			.RegisterSample<BorderLabelPage>(nameof(BorderLabelPage), "Demonstrates a border with a label")
 			.RegisterSample<BottomSheetPage>(nameof(BottomSheetPage), "BottomSheet page")
+			.RegisterSample<DateCulturePage>(nameof(DateCulturePage), "Demonstrates custom date culture in XAML")
 			.RegisterSample<EditorPage>(nameof(EditorPage), "Editor page")
 			.RegisterSample<EntryMaskPage>(nameof(EntryMaskPage), "Demonstrates EntryMask behavior")
 			.RegisterSample<FragmentPage>(nameof(FragmentPage), "Demonstrates a fragment manager implementation based on ControlView.")
@@ -27,6 +28,7 @@ public static class MauiProgram
 			.RegisterSample<SVGPage>(nameof(SVGPage), "Demonstrates SVG usages")
 			.RegisterSample<ThemePage>(nameof(ThemePage), "Demonstrates some AppThemeBinding usages")
 			.RegisterSample<UserThemePage>(nameof(UserThemePage), "Demonstrates a custom UserTheme view model")
+			.RegisterSample<VisualStatesPage>(nameof(VisualStatesPage), "Demonstrates a helper view for working with VisualStatesManager")
 			.RegisterSample<VolumeSliderPage>(nameof(VolumeSliderPage), "Demonstrates a custom slider")
 			.AddLocalization<AppStrings>()
 			.ConfigureFonts(fonts =>
@@ -41,6 +43,9 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<MainPage>();
 		builder.Services.AddSingleton<UserThemes>();
+
+		Routing.RegisterRoute(nameof(SummaryPage), typeof(SummaryPage));
+		Routing.RegisterRoute(nameof(DetailsPage), typeof(DetailsPage));
 
 		return builder.Build();
 	}

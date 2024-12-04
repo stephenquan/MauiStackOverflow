@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.VisualStatesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    Title="VisualStatesPage"
+    x:DataType="local:VisualStatesPage"
+    BindingContext="{Binding Source={RelativeSource Self}}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,20,20,20" Spacing="20">
+            <Label Text="Entry with VisualStatesView" />
+            <local:VisualStatesView>
+                <Entry
+                    x:Name="entry"
+                    Placeholder="{MultiBinding {Binding Parent.IsNormal, Source={RelativeSource Self}},
+                                               {Binding Parent.IsPointerOver, Source={RelativeSource Self}},
+                                               {Binding Parent.IsSelected, Source={RelativeSource Self}},
+                                               StringFormat='Normal:{0}, PointerOver:{1}, Selected:{2}'}"
+                    Text="" />
+            </local:VisualStatesView>
+
+            <Label Text="ContentView with VisualStatesView" />
+
+            <Grid ColumnDefinitions="*,*,*">
+                <CollectionView
+                    ItemsSource="{Binding TenFruits}"
+                    SelectedItem="{Binding SelectedFruit, Mode=TwoWay}"
+                    SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <local:VisualStatesView>
+                                <Entry
+                                    x:Name="cventry"
+                                    Margin="5,5,5,5"
+                                    Placeholder="{MultiBinding {Binding Parent.IsNormal, Source={RelativeSource Self}},
+                                                               {Binding Parent.IsPointerOver, Source={RelativeSource Self}},
+                                                               {Binding Parent.IsSelected, Source={RelativeSource Self}},
+                                                               {Binding IsFocused, Source={RelativeSource Self}},
+                                                               StringFormat='Normal:{0}, PointerOver:{1}, Selected:{2}, Focused:{3}'}" />
+                            </local:VisualStatesView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CollectionView
+                    Grid.Column="1"
+                    ItemsSource="{Binding TenFruits}"
+                    SelectedItem="{Binding SelectedFruit, Mode=TwoWay}"
+                    SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <local:VisualStatesView>
+                                <Label
+                                    x:Name="cvlabel"
+                                    Margin="5,5,5,5"
+                                    Text="{MultiBinding {Binding Parent.IsNormal, Source={RelativeSource Self}},
+                                                        {Binding Parent.IsPointerOver, Source={RelativeSource Self}},
+                                                        {Binding Parent.IsSelected, Source={RelativeSource Self}},
+                                                        {Binding IsFocused, Source={RelativeSource Self}},
+                                                        StringFormat='Normal:{0}, PointerOver:{1}, Selected:{2}, Focused:{3}'}" />
+                            </local:VisualStatesView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CollectionView
+                    Grid.Column="2"
+                    ItemsSource="{Binding TenFruits}"
+                    SelectedItem="{Binding SelectedFruit, Mode=TwoWay}"
+                    SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <local:VisualStatesView>
+                                <Button
+                                    x:Name="cvbutton"
+                                    Margin="5,5,5,5"
+                                    Text="{MultiBinding {Binding Parent.IsNormal, Source={RelativeSource Self}},
+                                                        {Binding Parent.IsPointerOver, Source={RelativeSource Self}},
+                                                        {Binding Parent.IsSelected, Source={RelativeSource Self}},
+                                                        {Binding IsFocused, Source={RelativeSource Self}},
+                                                        StringFormat='Normal:{0}, PointerOver:{1}, Selected:{2}, Focused:{3}'}" />
+                            </local:VisualStatesView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

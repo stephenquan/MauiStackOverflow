@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Maui.StackOverflow.DateCulturePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow"
+    Title="DateCulturePage"
+    x:DataType="local:DateCultureModel"
+    BindingContext="{local:DateCultureModel}">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="20,20,20,20" Spacing="20">
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span FontAttributes="Bold" Text="{MultiBinding {Binding StartDate}, {Binding Culture}, StringFormat='{0:ddd}'}" />
+                        <Span Text=" " />
+                        <Span Text="{MultiBinding {Binding StartDate}, {Binding Culture}, StringFormat='{0:dd.MM.yy}'}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Button
+                Command="{Binding SetCultureCommand}"
+                CommandParameter="{Binding [de-DE]}"
+                Text="de-DE" />
+
+            <Button
+                Command="{Binding SetCultureCommand}"
+                CommandParameter="{Binding [en-US]}"
+                Text="en-US" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

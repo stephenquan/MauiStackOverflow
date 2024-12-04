@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Maui.StackOverflow.VisualStatesView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.StackOverflow">
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroupList>
+            <VisualStateGroup Name="CommonStates">
+                <VisualState Name="Normal">
+                    <VisualState.Setters>
+                        <Setter Property="local:VisualStatesView.IsNormal" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState Name="PointerOver">
+                    <VisualState.Setters>
+                        <Setter Property="local:VisualStatesView.IsPointerOver" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState Name="Selected">
+                    <VisualState.Setters>
+                        <Setter Property="local:VisualStatesView.IsSelected" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateGroupList>
+    </VisualStateManager.VisualStateGroups>
+</ContentView>
