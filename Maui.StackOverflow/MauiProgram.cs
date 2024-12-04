@@ -44,9 +44,6 @@ public static class MauiProgram
 		builder.Services.AddTransient<MainPage>();
 		builder.Services.AddSingleton<UserThemes>();
 
-		Routing.RegisterRoute(nameof(SummaryPage), typeof(SummaryPage));
-		Routing.RegisterRoute(nameof(DetailsPage), typeof(DetailsPage));
-
 		return builder.Build();
 	}
 }
