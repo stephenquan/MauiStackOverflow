@@ -1,5 +1,5 @@
-using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Maui.StackOverflow;
 
@@ -81,7 +81,7 @@ public partial class EntryMaskPage : ContentPage
 					string left = ValidText.Substring(0, cursorPosition);
 					if (selectionLength <= 0)
 					{
-						span = new Span { Text = left + "\u20d2"};
+						span = new Span { Text = left + "\u20d2" };
 					}
 					else
 					{

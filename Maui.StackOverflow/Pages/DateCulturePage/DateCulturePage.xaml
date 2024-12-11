@@ -29,6 +29,7 @@
                 Command="{Binding SetCultureCommand}"
                 CommandParameter="{Binding [en-US]}"
                 Text="en-US" />
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -27,7 +27,7 @@ class CustomEditorInner : Editor
 
 	public CustomEditorInner()
 	{
-		this.Focused += (s,e) => FocusedCommand?.Execute(CommandParameter);
-		this.Unfocused += (s,e) => UnfocusedCommand?.Execute(CommandParameter);
+		this.Focused += (s, e) => FocusedCommand?.Execute(CommandParameter);
+		this.Unfocused += (s, e) => UnfocusedCommand?.Execute(CommandParameter);
 	}
 }

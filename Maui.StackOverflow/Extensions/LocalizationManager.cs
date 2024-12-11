@@ -23,7 +23,7 @@ public static class LocalizationManagerExtensions
 public class LocalizeExtension : BindableObject, IMarkupExtension<BindingBase>
 {
 	public static readonly BindableProperty KeyProperty = BindableProperty.Create(nameof(Key), typeof(string), typeof(LocalizeExtension), null,
-		propertyChanged: (b,o,n) => ((LocalizeExtension) b).OnTextChanged());
+		propertyChanged: (b, o, n) => ((LocalizeExtension)b).OnTextChanged());
 	public string Key
 	{
 		get => (string)GetValue(KeyProperty);

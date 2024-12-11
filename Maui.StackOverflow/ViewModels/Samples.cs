@@ -31,4 +31,3 @@ public static class Samples
 		return builder.RegisterSample(typeof(T), name, description);
 	}
 }
-

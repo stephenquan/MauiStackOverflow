@@ -4,7 +4,7 @@ namespace Maui.StackOverflow;
 
 public partial class VisualStatesPage : ContentPage
 {
-	public ObservableCollection<string> TenFruits { get; } = new ()
+	public ObservableCollection<string> TenFruits { get; } = new()
 	{
 		"Apple",
 		"Banana",

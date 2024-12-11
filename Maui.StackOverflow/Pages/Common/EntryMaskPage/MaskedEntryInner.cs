@@ -20,7 +20,7 @@ public class MaskedEntryInner : Entry
 		PropertyChanged += OnPropertyChanged;
 	}
 
-	private void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
+	void OnPropertyChanged(object? sender, System.ComponentModel.PropertyChangedEventArgs e)
 	{
 		throw new NotImplementedException();
 	}

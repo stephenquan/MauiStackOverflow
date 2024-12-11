@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Maui;
-using Microsoft.Extensions.Logging;
 using Maui.StackOverflow.Resources.Strings;
+using Microsoft.Extensions.Logging;
 
 namespace Maui.StackOverflow;
 
